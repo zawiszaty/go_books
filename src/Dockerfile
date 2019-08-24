@@ -1,7 +1,8 @@
-FROM golang:1.12.4
-RUN go get github.com/codegangsta/gin
+FROM golang:1.13rc1-alpine3.10
 
-WORKDIR $GOPATH/src/go_books/src
+RUN apk update
 
-COPY . .
+RUN apk add dep
+RUN apk add git
 
+CMD tail -f /dev/null

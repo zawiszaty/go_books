@@ -12,8 +12,9 @@ services:
 
   go:
     build: ./src
+    working_dir: /go/src/go_books
     volumes:
-      - ./src:$GOPATH/src/go_books/src
+      - ./:/go/src/go_books
     ports:
       - 8080:8080
     links:
