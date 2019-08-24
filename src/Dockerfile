@@ -5,5 +5,3 @@ WORKDIR $GOPATH/src/go_books/src
 
 COPY . .
 
-RUN go get
-RUN go get github.com/pilu/fresh
