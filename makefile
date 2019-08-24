@@ -1,5 +1,5 @@
 .PHONY: start
-start: stop up dep
+start: stop up dep server
 
 .PHONY: stop
 stop: ## stop environment
@@ -12,3 +12,7 @@ dep: ## spin up environment
 .PHONY: up
 up: ## up docker
 		docker-compose up -d
+
+.PHONY: server
+server: ## up server
+		docker-compose exec go go run src/*.go
