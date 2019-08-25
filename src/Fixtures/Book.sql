@@ -1,0 +1,2 @@
+DELETE FROM books;
+INSERT INTO test_go_books.books (id, description, author, category,created_at, updated_at, deleted_at, name) VALUES (1, 'test', 1, 1,'2019-08-25 13:46:45', '2019-08-25 13:46:45', null, 'testowa nazwa');

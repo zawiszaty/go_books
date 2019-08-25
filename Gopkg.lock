@@ -70,6 +70,14 @@
   version = "v1.0.0"
 
 [[projects]]
+  digest = "1:ecd9aa82687cf31d1585d4ac61d0ba180e42e8a6182b85bd785fcca8dfeefc1b"
+  name = "github.com/joho/godotenv"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "23d116af351c84513e1946b527c88823e476be13"
+  version = "v1.3.0"
+
+[[projects]]
   digest = "1:f5a2051c55d05548d2d4fd23d244027b59fbd943217df8aa3b5e170ac2fd6e1b"
   name = "github.com/json-iterator/go"
   packages = ["."]
@@ -110,6 +118,17 @@
   version = "v0.8.1"
 
 [[projects]]
+  branch = "master"
+  digest = "1:8f26e821ab405c17fda239598d01b62dba2eb00f88e9ca72fce0ffa6b2a46406"
+  name = "github.com/takashabe/go-fixture"
+  packages = [
+    ".",
+    "mysql",
+  ]
+  pruneopts = "UT"
+  revision = "3590f2a91aef300646f157eaaf60e326c4a9ebd8"
+
+[[projects]]
   digest = "1:d0072748c62defde1ad99dde77f6ffce492a0e5aea9204077e497c7edfb86653"
   name = "github.com/ugorji/go"
   packages = ["codec"]
@@ -142,12 +161,12 @@
   version = "v8.18.2"
 
 [[projects]]
-  digest = "1:4d2e5a73dc1500038e504a8d78b986630e3626dc027bc030ba5c75da257cdb96"
+  branch = "v2"
+  digest = "1:2d56cd111a870bdf3ee37601877effe1fc79b8983645c147846f4769b6eb7051"
   name = "gopkg.in/yaml.v2"
   packages = ["."]
   pruneopts = "UT"
-  revision = "51d6538a90f86fe93ac480b35f37b2be17fef232"
-  version = "v2.2.2"
+  revision = "7b8349ac747c6a24702b762d2c4fd9266cf4f1d6"
 
 [[projects]]
   digest = "1:a5cc901b8e54c4b73a62f97dc7c8f6c46e347c148a7a38e09b2e942c2587ba03"
@@ -168,8 +187,12 @@
   analyzer-version = 1
   input-imports = [
     "github.com/gin-gonic/gin",
+    "github.com/go-sql-driver/mysql",
     "github.com/jinzhu/gorm",
     "github.com/jinzhu/gorm/dialects/mysql",
+    "github.com/joho/godotenv",
+    "github.com/takashabe/go-fixture",
+    "github.com/takashabe/go-fixture/mysql",
     "gotest.tools/assert",
   ]
   solver-name = "gps-cdcl"

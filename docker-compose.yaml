@@ -5,6 +5,7 @@ services:
     image: mysql:5.7
     environment:
       MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: test_go_books
     volumes:
       - db_data:/var/lib/mysql
     ports:

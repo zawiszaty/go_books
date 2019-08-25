@@ -2,50 +2,43 @@ package Controller
 
 import (
 	"bytes"
-	"encoding/json"
-	"github.com/gin-gonic/gin"
+	"database/sql"
+	_ "github.com/go-sql-driver/mysql"
+	_ "github.com/takashabe/go-fixture/mysql"
+	"go_books/src/Fixtures"
 	"gotest.tools/assert"
 	"net/http"
 	"testing"
 )
 
+var (
+	db       *sql.DB
+)
+
+
+
 func TestCreateAuthorAction(t *testing.T) {
-	values := map[string]string{"name": "asdasd"}
-
-	jsonValue, _ := json.Marshal(values)
-
-	resp, _ := http.Post("http://127.0.0.1:8080/api/author/", "application/json", bytes.NewBuffer(jsonValue))
-	assert.Equal(t, resp.Status, 200)
+	Fixtures.LoadFixture()
+	values := []byte(`{"name": "testowa"}`)
+	req, _ := http.NewRequest("POST","http://127.0.0.1:8080/api/author/", bytes.NewBuffer(values))
+	client := &http.Client{}
+	resp, _ := client.Do(req)
+	assert.Equal(t, resp.StatusCode, 200)
 }
 
 func TestDeleteAuthorAction(t *testing.T) {
-	type args struct {
-		c *gin.Context
-	}
-	tests := []struct {
-		name string
-		args args
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-		})
-	}
+	Fixtures.LoadFixture()
+	req, _ := http.NewRequest("DELETE","http://127.0.0.1:8080/api/author/1", bytes.NewBuffer([]byte(`{}`)))
+	client := &http.Client{}
+	resp, _ := client.Do(req)
+	assert.Equal(t, resp.StatusCode, 200)
 }
 
 func TestEditAuthorAction(t *testing.T) {
-	type args struct {
-		c *gin.Context
-	}
-	tests := []struct {
-		name string
-		args args
-	}{
-		// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-		})
-	}
+	Fixtures.LoadFixture()
+	values := []byte(`{"name": "nowa testowa"}`)
+	req, _ := http.NewRequest("PATCH","http://127.0.0.1:8080/api/author/1", bytes.NewBuffer(values))
+	client := &http.Client{}
+	resp, _ := client.Do(req)
+	assert.Equal(t, resp.StatusCode, 200)
 }

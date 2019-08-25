@@ -17,6 +17,6 @@ func BookRoutes(router *gin.RouterGroup) {
 
 func CategoryRoutes(router *gin.RouterGroup) {
 	router.POST("/", Controller.CreateCategoryAction)
-	router.POST("/:id", Controller.DeleteCategoryAction)
+	router.DELETE("/:id", Controller.DeleteCategoryAction)
 	router.PATCH("/:id", Controller.EditCategoryAction)
 }

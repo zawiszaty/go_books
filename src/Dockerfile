@@ -4,5 +4,6 @@ RUN apk update
 
 RUN apk add dep
 RUN apk add git
+RUN apk add g++
 
 CMD tail -f /dev/null

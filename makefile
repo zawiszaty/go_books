@@ -16,3 +16,7 @@ up: ## up docker
 .PHONY: server
 server: ## up server
 		docker-compose exec go go run src/*.go
+
+.PHONY: test
+test: ## run test
+		docker-compose exec go go test ./src/Controller
